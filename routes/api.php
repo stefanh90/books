@@ -38,7 +38,7 @@ Route::get('books/{id}', function($id) {
 Route::get('publishers/all', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Publisher::all();
+    return Publisher::with('books')->get();
 });
 
 Route::get('publishers/{id}', function($id) {
@@ -48,7 +48,7 @@ Route::get('publishers/{id}', function($id) {
 Route::get('authors/all', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Author::get();
+    return Author::with('books')->get();
 });
 
 Route::get('authors/{id}', function($id) {
